@@ -1,225 +1,523 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
+<script>document.documentElement.className = 'js';</script>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>STEM Racing Season 9 — The British School New Delhi</title>
 <meta name="description" content="Applications for STEM Racing Season 9 at The British School New Delhi. Read the judging rubric, score your own proposal, and apply before 21 August 2026.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f4f5f7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#080d16" media="(prefers-color-scheme: dark)">
 <style>
+/* =========================================================================
+   Tokens
+   Light is the base palette. Dark redefines only what changes.
+   ========================================================================= */
 :root{
-  --night:#06183A;
-  --deep:#030F27;
-  --panel:#0B2350;
-  --panel-2:#102C61;
-  --teal:#12A5A0;
-  --teal-dim:#0B6E6B;
-  --gold:#E8B234;
-  --paper:#F2F5FA;
-  --muted:#8FA3C4;
-  --rule:rgba(143,163,196,.22);
-  --display:'Familjen Grotesk','Helvetica Neue',system-ui,sans-serif;
-  --body:'Inter Tight',system-ui,sans-serif;
-  --data:'JetBrains Mono',ui-monospace,monospace;
-  --pad:clamp(20px,5vw,64px);
+  color-scheme: light dark;
+
+  --bg:            #f4f5f7;
+  --bg-tint-a:     rgba(14,143,139,.10);
+  --bg-tint-b:     rgba(184,134,11,.07);
+
+  --surface:       rgba(255,255,255,.72);
+  --surface-solid: #ffffff;
+  --surface-2:     rgba(255,255,255,.55);
+  --chrome:        rgba(244,245,247,.72);
+
+  --text:          #0a0f1c;
+  --text-2:        #4c5668;
+  --text-3:        #6f7a8d;
+
+  --sep:           rgba(10,15,28,.12);
+  --sep-strong:    rgba(10,15,28,.22);
+  --hairline-top:  rgba(255,255,255,.7);
+
+  --accent:        #0d7f7b;   /* teal — interactive */
+  --accent-soft:   rgba(13,127,123,.12);
+  --accent-ink:    #ffffff;
+  --gold:          #8a6100;   /* gold, contrast-safe on paper */
+  --gold-fill:     #e8b234;
+  --navy:          #062b5b;
+
+  --shadow-s: 0 1px 2px rgba(10,15,28,.06), 0 2px 8px rgba(10,15,28,.05);
+  --shadow-m: 0 2px 6px rgba(10,15,28,.07), 0 12px 32px rgba(10,15,28,.09);
+  --shadow-l: 0 4px 12px rgba(10,15,28,.09), 0 28px 64px rgba(10,15,28,.14);
+
+  /* Type — platform system faces, already optically sized and tracked. */
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI Variable Text", "Segoe UI", system-ui, Roboto, "Helvetica Neue", sans-serif;
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, "Cascadia Mono", Consolas, monospace;
+
+  --pad: clamp(1.25rem, 5vw, 4rem);
+  --radius: 14px;
+  --radius-s: 10px;
 }
 
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;
-  background:var(--night);
-  color:var(--paper);
-  font-family:var(--body);
-  font-size:16px;
-  line-height:1.6;
-  -webkit-font-smoothing:antialiased;
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:            #080d16;
+    --bg-tint-a:     rgba(45,189,183,.13);
+    --bg-tint-b:     rgba(232,178,52,.08);
+
+    --surface:       rgba(24,33,50,.62);
+    --surface-solid: #151d2c;
+    --surface-2:     rgba(24,33,50,.42);
+    --chrome:        rgba(8,13,22,.66);
+
+    --text:          #f1f4f9;
+    --text-2:        #a3b1c8;
+    --text-3:        #8593ab;
+
+    --sep:           rgba(163,177,200,.20);
+    --sep-strong:    rgba(163,177,200,.34);
+    --hairline-top:  rgba(255,255,255,.10);
+
+    --accent:        #2dbdb7;
+    --accent-soft:   rgba(45,189,183,.16);
+    --accent-ink:    #04231f;
+    --gold:          #e8b234;
+    --gold-fill:     #e8b234;
+    --navy:          #cddcf5;
+
+    --shadow-s: 0 1px 2px rgba(0,0,0,.4);
+    --shadow-m: 0 2px 8px rgba(0,0,0,.45), 0 16px 40px rgba(0,0,0,.4);
+    --shadow-l: 0 6px 16px rgba(0,0,0,.5), 0 32px 72px rgba(0,0,0,.55);
+  }
 }
+
+/* Accessibility preferences — materials go solid, borders get defined. */
+@media (prefers-reduced-transparency: reduce){
+  :root{
+    --surface: var(--surface-solid);
+    --surface-2: var(--surface-solid);
+    --chrome: var(--bg);
+  }
+  .material, .chrome{ backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
+}
+@media (prefers-contrast: more){
+  :root{
+    --surface: var(--surface-solid);
+    --surface-2: var(--surface-solid);
+    --chrome: var(--bg);
+    --sep: var(--sep-strong);
+    --text-2: var(--text);
+    --text-3: var(--text);
+  }
+  .material, .chrome{ backdrop-filter: none !important; -webkit-backdrop-filter: none !important; border-width: 1px; }
+}
+
+/* =========================================================================
+   Base
+   ========================================================================= */
+*, *::before, *::after{ box-sizing: border-box }
+
+html{ -webkit-text-size-adjust: 100% }
+
+body{
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 100%;
+  line-height: 1.55;
+  letter-spacing: 0;               /* body sits at zero tracking */
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+/* A single fixed wash. Large, static, low contrast — nothing oscillates. */
 body::before{
   content:'';
-  position:fixed;inset:0;z-index:0;pointer-events:none;
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
   background:
-    radial-gradient(120% 70% at 82% -8%, rgba(18,165,160,.20), transparent 60%),
-    radial-gradient(90% 60% at 0% 0%, rgba(232,178,52,.10), transparent 55%);
+    radial-gradient(70% 48% at 88% -6%, var(--bg-tint-a), transparent 62%),
+    radial-gradient(58% 44% at -4% 2%, var(--bg-tint-b), transparent 60%);
 }
-main,header,footer{position:relative;z-index:1}
-a{color:inherit}
-h1,h2,h3{font-family:var(--display);font-weight:700;letter-spacing:-.02em;margin:0}
+main, header, footer{ position: relative; z-index: 1 }
 
-.wrap{max-width:1160px;margin:0 auto;padding-inline:var(--pad)}
+a{ color: var(--accent); text-underline-offset: .18em }
 
+h1, h2, h3{ margin: 0; font-weight: 700 }
+
+/* Tracking is size-specific: tight as type grows, near zero at body size,
+   open on small uppercase labels. */
+h1{ letter-spacing: -.032em; line-height: 1.02 }
+h2{ letter-spacing: -.024em; line-height: 1.08 }
+h3{ letter-spacing: -.014em; line-height: 1.22 }
+
+.wrap{ max-width: 68rem; margin-inline: auto; padding-inline: var(--pad) }
+
+.label{
+  font-family: var(--mono);
+  font-size: .6875rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin: 0;
+}
 .eyebrow{
-  font-family:var(--data);font-size:11px;font-weight:700;
-  letter-spacing:.18em;text-transform:uppercase;color:var(--teal);
-  display:flex;align-items:center;gap:10px;
+  font-family: var(--mono);
+  font-size: .6875rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 .875rem;
+  display: flex; align-items: center; gap: .625rem;
 }
-.eyebrow::before{content:'';width:26px;height:2px;background:var(--gold);flex:none}
-
-/* ---------- top bar ---------- */
-.topbar{
-  border-bottom:1px solid var(--rule);
-  background:rgba(3,15,39,.72);
-  backdrop-filter:blur(10px);
-  position:sticky;top:0;z-index:40;
+.eyebrow::before{
+  content:''; width: 1.5rem; height: 2px; flex: none; border-radius: 2px;
+  background: var(--gold-fill);
 }
-.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
-.mark{font-family:var(--data);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
-.mark span{color:var(--gold)}
-.topbar nav{display:flex;gap:22px;font-family:var(--data);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
-.topbar nav a{color:var(--muted);text-decoration:none;transition:color .18s}
-.topbar nav a:hover{color:var(--paper)}
-@media(max-width:720px){.topbar nav{display:none}}
 
-/* ---------- hero ---------- */
-.hero{padding-block:clamp(48px,7vw,86px) clamp(40px,6vw,72px)}
-.hero h1{
-  font-size:clamp(36px,5.4vw,64px);
-  line-height:1.0;
-  margin:22px 0 0;
-  text-wrap:balance;
+:focus-visible{
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
-.hero h1 em{font-style:normal;color:var(--gold)}
-.hero-grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:end}
-@media(max-width:860px){.hero-grid{grid-template-columns:1fr;align-items:start}}
-.lede{color:var(--muted);font-size:clamp(16px,1.9vw,19px);max-width:52ch;margin:24px 0 0}
-.lede strong{color:var(--paper);font-weight:600}
 
-.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+/* Materials. Bigger surfaces read as thicker: more blur, deeper shadow. */
+.material{
+  background: var(--surface);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid var(--sep);
+  border-top-color: var(--hairline-top);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-m);
+}
+
+/* =========================================================================
+   Chrome — top bar. Content scrolls underneath; the edge fades in.
+   ========================================================================= */
+.chrome{
+  position: sticky; top: 0; z-index: 50;
+  background: var(--chrome);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  padding-top: env(safe-area-inset-top);
+}
+.chrome::after{
+  content:''; position: absolute; left: 0; right: 0; top: 100%; height: 1.25rem;
+  background: linear-gradient(var(--chrome), transparent);
+  opacity: 0; pointer-events: none;
+}
+.chrome-line{
+  position: absolute; left: 0; right: 0; bottom: 0; height: 1px;
+  background: var(--sep); opacity: 0;
+}
+.chrome.is-scrolled::after, .chrome.is-scrolled .chrome-line{ opacity: 1 }
+.chrome::after, .chrome-line{ transition: opacity .28s ease }
+
+.chrome .wrap{
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem; padding-block: .875rem;
+}
+.mark{
+  font-family: var(--mono); font-size: .75rem; font-weight: 600;
+  letter-spacing: .08em; text-transform: uppercase; color: var(--text);
+}
+.mark span{ color: var(--text-3) }
+.mark b{ color: var(--gold); font-weight: 600 }
+
+.chrome nav{ display: flex; gap: 1.5rem }
+.chrome nav a{
+  font-size: .8125rem; color: var(--text-2); text-decoration: none;
+  padding: .25rem 0;
+}
+.chrome nav a:hover{ color: var(--text) }
+@media (max-width: 46rem){ .chrome nav{ display: none } }
+
+/* =========================================================================
+   Buttons — feedback on press, never on release.
+   ========================================================================= */
 .btn{
-  font-family:var(--data);font-size:12px;font-weight:700;
-  letter-spacing:.12em;text-transform:uppercase;
-  padding:15px 24px;border-radius:2px;text-decoration:none;
-  display:inline-flex;align-items:center;gap:10px;border:1px solid transparent;
-  transition:transform .16s ease, background .16s ease, border-color .16s ease;
+  --btn-scale: 1;
+  appearance: none; border: 1px solid transparent; cursor: pointer;
+  font: inherit; font-size: .9375rem; font-weight: 600; letter-spacing: -.005em;
+  padding: .8125rem 1.25rem; border-radius: 999px;
+  display: inline-flex; align-items: center; gap: .5rem;
+  text-decoration: none; white-space: nowrap;
+  transform: scale(var(--btn-scale));
+  transition: transform .12s ease-out, background-color .18s ease, border-color .18s ease, box-shadow .18s ease;
+  touch-action: manipulation;
 }
-.btn-primary{background:var(--gold);color:var(--deep)}
-.btn-primary:hover{transform:translateY(-2px);background:#F2C155}
-.btn-ghost{border-color:var(--rule);color:var(--paper)}
-.btn-ghost:hover{border-color:var(--teal);transform:translateY(-2px)}
-
-/* countdown slab */
-.slab{
-  border:1px solid var(--rule);
-  background:linear-gradient(160deg,rgba(16,44,97,.85),rgba(3,15,39,.6));
-  padding:26px;border-radius:3px;position:relative;overflow:hidden;
+.btn:active, .btn.is-pressed{ --btn-scale: .97 }
+.btn-primary{
+  background: var(--gold-fill); color: #23180a; box-shadow: var(--shadow-s);
 }
-.slab::after{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--teal)}
-.slab .k{font-family:var(--data);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
-.slab .big{font-family:var(--data);font-weight:700;font-size:clamp(46px,7vw,68px);line-height:1;color:var(--paper);font-variant-numeric:tabular-nums;margin:8px 0 2px}
-.slab .big small{font-size:15px;color:var(--muted);letter-spacing:.1em;margin-left:8px}
-.slab .date{font-family:var(--data);font-size:12px;color:var(--gold);letter-spacing:.08em}
-.slab hr{border:0;border-top:1px solid var(--rule);margin:18px 0}
-.slab dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 16px;font-size:13px}
-.slab dt{font-family:var(--data);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);align-self:center}
-.slab dd{margin:0;color:var(--paper)}
-
-/* ---------- sections ---------- */
-section{padding-block:clamp(52px,7vw,90px);border-top:1px solid var(--rule)}
-.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:clamp(24px,5vw,60px);align-items:start;margin-bottom:44px}
-@media(max-width:860px){.sec-head{grid-template-columns:1fr;gap:16px;margin-bottom:32px}}
-.sec-head h2{font-size:clamp(26px,3.4vw,38px);line-height:1.06;text-wrap:balance;margin-top:14px}
-.sec-head p{color:var(--muted);margin:16px 0 0;max-width:56ch}
-
-/* deliverables */
-.deliverables{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule)}
-.del{background:var(--night);padding:26px 22px}
-.del .n{font-family:var(--data);font-size:11px;color:var(--teal);letter-spacing:.14em}
-.del h3{font-size:19px;margin:12px 0 8px}
-.del p{margin:0;font-size:14px;color:var(--muted);line-height:1.55}
-
-/* steps */
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,3vw,32px)}
-@media(max-width:800px){.steps{grid-template-columns:1fr}}
-.step{border-top:2px solid var(--gold);padding-top:20px}
-.step:nth-child(2){border-color:var(--teal)}
-.step:nth-child(3){border-color:var(--muted)}
-.step .n{font-family:var(--data);font-size:11px;letter-spacing:.16em;color:var(--muted);text-transform:uppercase}
-.step h3{font-size:21px;margin:10px 0 10px}
-.step p{margin:0;color:var(--muted);font-size:15px}
-.step a{color:var(--gold);text-underline-offset:3px}
-
-/* ---------- judging sheet (signature) ---------- */
-.sheet-intro{
-  border:1px solid var(--rule);border-left:3px solid var(--gold);
-  padding:20px 24px;margin-bottom:34px;background:rgba(11,35,80,.5);
-  font-size:15px;color:var(--muted);
+.btn-primary:hover{ background: #f0c256 }
+.btn-secondary{
+  background: var(--surface); border-color: var(--sep-strong); color: var(--text);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
 }
-.sheet-intro strong{color:var(--paper);font-weight:600}
+.btn-secondary:hover{ border-color: var(--accent); color: var(--accent) }
+.btn .arrow{ transition: transform .18s ease }
+.btn:hover .arrow{ transform: translateX(2px) }
 
-.criterion{border:1px solid var(--rule);background:rgba(11,35,80,.42);margin-bottom:14px}
-.criterion-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:20px 24px 4px;flex-wrap:wrap}
-.criterion-head h3{font-size:clamp(19px,2.4vw,25px)}
-.criterion-head .idx{font-family:var(--data);font-size:11px;color:var(--teal);letter-spacing:.16em;display:block;margin-bottom:6px}
-.criterion-head .max{font-family:var(--data);font-size:11px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;white-space:nowrap}
-.criterion .src{padding:0 24px 16px;font-family:var(--data);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-
-.bands{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
-@media(max-width:640px){.bands{grid-template-columns:repeat(2,1fr)}}
-.band{
-  background:var(--night);border:0;cursor:pointer;text-align:left;
-  padding:14px 16px;color:var(--muted);font-family:var(--data);
-  font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
-  transition:background .16s, color .16s;
+/* =========================================================================
+   Hero
+   ========================================================================= */
+.hero{ padding-block: clamp(2.75rem, 7vw, 5.5rem) clamp(2.5rem, 6vw, 4.5rem) }
+.hero-grid{
+  display: grid; grid-template-columns: minmax(0,1.5fr) minmax(0,1fr);
+  gap: clamp(1.75rem, 5vw, 4rem); align-items: end;
 }
-.band .marks{display:block;font-size:17px;letter-spacing:0;margin-top:6px;color:var(--paper);font-variant-numeric:tabular-nums}
-.band:hover{background:var(--panel-2);color:var(--paper)}
-.band[aria-pressed="true"]{background:var(--teal-dim);color:#fff}
-.band[aria-pressed="true"] .marks{color:var(--gold)}
-.band:focus-visible{outline:2px solid var(--gold);outline-offset:-3px}
+@media (max-width: 56rem){ .hero-grid{ grid-template-columns: 1fr; align-items: start } }
 
-.band-body{padding:20px 24px 24px;font-size:15px;line-height:1.6;color:var(--paper);min-height:96px}
-.band-body em{color:var(--gold);font-style:italic}
-.band-body .placeholder{color:var(--muted)}
+.hero h1{
+  font-size: clamp(2.25rem, 5.2vw, 3.75rem);
+  text-wrap: balance;
+  margin-bottom: 1.25rem;
+}
+.hero h1 em{ font-style: normal; color: var(--gold) }
+.lede{
+  color: var(--text-2); font-size: clamp(1rem, 1.5vw, 1.1875rem);
+  line-height: 1.55; max-width: 34em; margin: 0;
+}
+.lede strong{ color: var(--text); font-weight: 600 }
+.cta-row{ display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem }
 
-/* tally */
+/* Countdown card */
+.countdown{ padding: 1.5rem; box-shadow: var(--shadow-l) }
+.countdown .big{
+  font-size: clamp(3rem, 7vw, 4.25rem); font-weight: 700;
+  letter-spacing: -.04em; line-height: 1; font-variant-numeric: tabular-nums;
+  margin: .5rem 0 .25rem; display: flex; align-items: baseline; gap: .5rem;
+}
+.countdown .big small{
+  font-size: .9375rem; font-weight: 500; letter-spacing: -.01em; color: var(--text-3);
+}
+.countdown .date{ font-size: .875rem; color: var(--gold); font-weight: 600; margin: 0 }
+.countdown dl{
+  margin: 1.25rem 0 0; padding-top: 1.25rem; border-top: 1px solid var(--sep);
+  display: grid; grid-template-columns: auto 1fr; gap: .5rem 1rem; font-size: .875rem;
+}
+.countdown dt{ color: var(--text-3) }
+.countdown dd{ margin: 0; color: var(--text); font-weight: 500; text-align: right }
+
+/* =========================================================================
+   Sections
+   ========================================================================= */
+section{ padding-block: clamp(3rem, 7vw, 5.5rem) }
+section + section{ border-top: 1px solid var(--sep) }
+.sec-head{
+  display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.4fr);
+  gap: clamp(1rem, 5vw, 3.5rem); align-items: start; margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+@media (max-width: 56rem){ .sec-head{ grid-template-columns: 1fr; gap: .75rem } }
+.sec-head h2{ font-size: clamp(1.625rem, 3.4vw, 2.375rem); text-wrap: balance }
+.sec-head p{ color: var(--text-2); margin: .875rem 0 0; max-width: 36em }
+
+/* Deliverables */
+/* Five deliverables, so five columns — an auto-fit grid strands the fifth
+   card on a row of its own. */
+.deliverables{ display: grid; grid-template-columns: 1fr; gap: .75rem }
+@media (min-width: 34rem){ .deliverables{ grid-template-columns: repeat(2, 1fr) } }
+@media (min-width: 64rem){ .deliverables{ grid-template-columns: repeat(5, 1fr) } }
+.del{ padding: 1.375rem 1.25rem }
+.del .n{
+  font-family: var(--mono); font-size: .6875rem; font-weight: 600;
+  letter-spacing: .1em; color: var(--accent);
+}
+.del h3{ font-size: 1.0625rem; margin: .625rem 0 .375rem }
+.del p{ margin: 0; font-size: .875rem; color: var(--text-2); line-height: 1.5 }
+
+/* Steps */
+.steps{ display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1rem, 3vw, 2rem) }
+@media (max-width: 52rem){ .steps{ grid-template-columns: 1fr } }
+.step{ padding-top: 1.125rem; border-top: 2px solid var(--gold-fill) }
+.step:nth-child(2){ border-top-color: var(--accent) }
+.step:nth-child(3){ border-top-color: var(--sep-strong) }
+.step .n{
+  font-family: var(--mono); font-size: .6875rem; font-weight: 600;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--text-3);
+}
+.step h3{ font-size: 1.1875rem; margin: .5rem 0 .5rem }
+.step p{ margin: 0; color: var(--text-2); font-size: .9375rem }
+
+/* =========================================================================
+   Judging sheet — the signature interaction
+   ========================================================================= */
+.note{
+  padding: 1.125rem 1.375rem; margin-bottom: 1.5rem;
+  border-left: 3px solid var(--gold-fill);
+  font-size: .9375rem; color: var(--text-2);
+}
+.note strong{ color: var(--text); font-weight: 600 }
+
+.criterion{ padding: 1.375rem 1.375rem 1.25rem; margin-bottom: .875rem }
+.crit-head{
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 1rem; flex-wrap: wrap; margin-bottom: 1.125rem;
+}
+.crit-head .idx{
+  font-family: var(--mono); font-size: .6875rem; font-weight: 600;
+  letter-spacing: .1em; color: var(--accent); margin: 0 0 .3125rem;
+}
+.crit-head h3{ font-size: clamp(1.125rem, 2.2vw, 1.375rem) }
+.crit-head .src{ margin: .375rem 0 0; font-size: .8125rem; color: var(--text-3) }
+.crit-head .max{
+  font-family: var(--mono); font-size: .6875rem; font-weight: 600;
+  letter-spacing: .08em; text-transform: uppercase; color: var(--text-3);
+  white-space: nowrap;
+}
+
+/* Segmented control: a real track you can drag, not four separate buttons. */
+.seg{
+  position: relative;
+  background: var(--accent-soft);
+  border-radius: var(--radius-s);
+  padding: 4px;
+  touch-action: pan-y;              /* vertical scroll still belongs to the page */
+  user-select: none; -webkit-user-select: none;
+  cursor: grab;
+}
+.seg.is-dragging{ cursor: grabbing }
+
+.seg-thumb{
+  position: absolute; top: 4px; bottom: 4px; left: 4px;
+  border-radius: calc(var(--radius-s) - 3px);
+  background: var(--accent);
+  box-shadow: var(--shadow-s);
+  transform: translate3d(0,0,0) scale(1);
+  transform-origin: center;
+  opacity: 0;
+  pointer-events: none;
+  will-change: transform;
+}
+.seg-opts{ position: relative; display: grid; grid-template-columns: repeat(4, 1fr) }
+.seg-opt{
+  appearance: none; background: none; border: 0; cursor: inherit;
+  font: inherit; color: var(--text-2);
+  padding: .625rem .375rem; border-radius: calc(var(--radius-s) - 3px);
+  display: flex; flex-direction: column; align-items: center; gap: .1875rem;
+  transition: color .18s ease;
+}
+.seg-opt{ min-width: 0 }
+.seg-opt .name{ font-size: .8125rem; font-weight: 600; letter-spacing: -.005em }
+/* Four labels across a narrow phone: shrink the type rather than let
+   "Exceptional" spill out of its band. */
+@media (max-width: 26rem){
+  .seg-opt{ padding: .5rem .1875rem }
+  .seg-opt .name{ font-size: .6875rem; letter-spacing: -.01em }
+  .seg-opt .marks{ font-size: .625rem }
+}
+.seg-opt .marks{
+  font-family: var(--mono); font-size: .6875rem; font-weight: 600;
+  color: var(--text-3); font-variant-numeric: tabular-nums;
+  transition: color .18s ease;
+}
+.seg-opt[aria-checked="true"]{ color: var(--accent-ink) }
+.seg-opt[aria-checked="true"] .marks{ color: var(--accent-ink); opacity: .8 }
+@media (hover: hover){
+  .seg-opt:not([aria-checked="true"]):hover{ color: var(--text) }
+}
+.seg-opt:focus-visible{ outline-offset: -2px }
+
+/* The height is reserved for the longest band so the card never jumps as you
+   drag between them. */
+.band-body{
+  margin: .875rem 0 0; font-size: .9375rem; line-height: 1.55; color: var(--text);
+  min-height: 3.25rem;
+}
+@media (max-width: 40rem){ .band-body{ min-height: 5.5rem } }
+.band-body.is-empty{ color: var(--text-3) }
+.band-body em{ color: var(--gold); font-style: italic }
+
+/* Tally — translucent chrome pinned to the bottom, content flows under it. */
 .tally{
-  position:sticky;bottom:0;z-index:30;margin-top:28px;
-  border:1px solid var(--teal);background:rgba(3,15,39,.94);
-  backdrop-filter:blur(12px);padding:18px 24px;
-  display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
+  position: sticky; bottom: 0; z-index: 40; margin-top: 1.5rem;
+  padding: 1.125rem 1.375rem calc(1.125rem + env(safe-area-inset-bottom));
+  border-radius: var(--radius) var(--radius) 0 0;
+  box-shadow: var(--shadow-l);
+  display: grid; grid-template-columns: auto 1fr auto; align-items: center;
+  gap: .75rem 1.25rem;
 }
-.tally .score{font-family:var(--data);font-weight:700;font-size:32px;font-variant-numeric:tabular-nums;line-height:1}
-.tally .score small{font-size:15px;color:var(--muted)}
-.tally .label{font-family:var(--data);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px}
-.tally .verdict{font-size:14.5px;color:var(--muted);max-width:46ch;flex:1 1 260px}
-.tally .verdict b{color:var(--gold);font-weight:600}
-.meter{height:4px;background:var(--rule);flex:1 1 100%;order:3;position:relative;overflow:hidden}
-.meter i{position:absolute;inset:0 auto 0 0;width:0;background:linear-gradient(90deg,var(--teal),var(--gold));transition:width .45s cubic-bezier(.2,.7,.3,1)}
-.meter::after{content:'';position:absolute;left:70%;top:-4px;bottom:-4px;width:1px;background:var(--gold);opacity:.8}
+@media (max-width: 40rem){
+  .tally{ grid-template-columns: auto 1fr; row-gap: .875rem }
+  .tally .reset{ grid-column: 2; justify-self: end }
+  .verdict{ grid-column: 1 / -1; order: 3 }
+}
+.tally .score{
+  font-size: 2rem; font-weight: 700; letter-spacing: -.035em; line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.tally .score small{ font-size: .9375rem; font-weight: 500; color: var(--text-3); letter-spacing: -.01em }
+.verdict{ margin: 0; font-size: .875rem; color: var(--text-2); max-width: 44em }
+.verdict b{ color: var(--gold); font-weight: 600 }
 .reset{
-  background:none;border:1px solid var(--rule);color:var(--muted);
-  font-family:var(--data);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
-  padding:9px 14px;cursor:pointer;transition:color .16s,border-color .16s;
+  appearance: none; background: none; border: 1px solid var(--sep-strong);
+  color: var(--text-2); font: inherit; font-size: .8125rem; font-weight: 500;
+  padding: .5rem .875rem; border-radius: 999px; cursor: pointer;
+  transition: transform .12s ease-out, color .18s ease, border-color .18s ease;
 }
-.reset:hover{color:var(--paper);border-color:var(--muted)}
+.reset:hover{ color: var(--text); border-color: var(--text-3) }
+.reset:active{ transform: scale(.96) }
 
-/* contact */
-.contacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:clamp(18px,3vw,34px)}
-.card{border:1px solid var(--rule);padding:24px;background:rgba(11,35,80,.42)}
-.card .role{font-family:var(--data);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal)}
-.card h3{font-size:20px;margin:10px 0 6px}
-.card a{color:var(--gold);font-size:14px;text-decoration:none;word-break:break-all}
-.card a:hover{text-decoration:underline}
+.meter{
+  grid-column: 1 / -1; order: 4;
+  position: relative; height: 4px; border-radius: 999px;
+  background: var(--sep); overflow: hidden;
+}
+.meter i{
+  position: absolute; inset: 0; transform-origin: left center;
+  transform: scaleX(0);
+  background: linear-gradient(90deg, var(--accent), var(--gold-fill));
+  will-change: transform;
+}
+.meter .threshold{
+  position: absolute; left: 70%; top: -3px; bottom: -3px; width: 1.5px;
+  border-radius: 2px; background: var(--gold); opacity: .85;
+}
 
-footer{border-top:1px solid var(--rule);padding-block:32px;color:var(--muted);font-size:13px}
-footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+/* =========================================================================
+   Contact + footer
+   ========================================================================= */
+.contacts{
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: .875rem;
+}
+.card{ padding: 1.375rem }
+.card .role{
+  font-family: var(--mono); font-size: .6875rem; font-weight: 600;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin: 0;
+}
+.card h3{ font-size: 1.125rem; margin: .625rem 0 .375rem }
+.card a{ font-size: .875rem; word-break: break-word }
 
-.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
-.reveal.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){
-  *{animation:none!important;transition:none!important}
-  html{scroll-behavior:auto}
-  .reveal{opacity:1;transform:none}
+footer{ border-top: 1px solid var(--sep); padding-block: 2rem; color: var(--text-3); font-size: .8125rem }
+footer .wrap{ display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap }
+
+/* =========================================================================
+   Reveal — enter and exit share one path. Reduced motion keeps the fade only.
+   ========================================================================= */
+/* Hidden only once JS has confirmed it can bring them back. Without script,
+   every word is still on the page. */
+.js .reveal{
+  opacity: 0; transform: translate3d(0, 14px, 0);
+  transition: opacity .5s cubic-bezier(.22,.61,.36,1), transform .5s cubic-bezier(.22,.61,.36,1);
+}
+.js .reveal.is-in{ opacity: 1; transform: none }
+
+@media (prefers-reduced-motion: reduce){
+  .reveal{ transform: none; transition: opacity .2s ease }
+  .btn, .reset{ transition: background-color .18s ease, border-color .18s ease, color .18s ease }
+  .btn:active, .btn.is-pressed, .reset:active{ --btn-scale: 1; transform: none }
+  .seg-thumb{ transition: opacity .18s ease }
+  html{ scroll-behavior: auto }
 }
 </style>
 </head>
 <body>
 
-<header class="topbar">
+<header class="chrome" id="chrome">
   <div class="wrap">
-    <div class="mark">TBS New Delhi <span>/</span> STEM Racing <span>S9</span></div>
+    <p class="mark">TBS New Delhi <span>/</span> STEM Racing <b>S9</b></p>
     <nav>
       <a href="#brief">The season</a>
       <a href="#apply">How to apply</a>
@@ -227,27 +525,27 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <a href="#contact">Contact</a>
     </nav>
   </div>
+  <div class="chrome-line"></div>
 </header>
 
 <main>
 
-<section class="hero" style="border-top:0">
+<section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <p class="eyebrow">Season 9 &nbsp;·&nbsp; Applications open</p>
+      <p class="eyebrow">Season 9 · Applications open</p>
       <h1>Design the car.<br>Run the team.<br><em>Get judged on both.</em></h1>
       <p class="lede">STEM Racing is the world's largest STEM competition. Teams of three to six design a miniature compressed-air car, manufacture it, and race it over twenty metres in about one second. <strong>The car is only half the marks.</strong> The rest comes from engineering documentation, sponsorship, branding and how you present under questioning.</p>
       <div class="cta-row">
-        <a class="btn btn-primary" href="https://forms.gle/PWturVPApADCfFQA7" id="applyTop">Start your proposal →</a>
-        <a class="btn btn-ghost" href="STEM_Racing_Season9_Proposal_Rubric.pdf">Download the rubric (PDF)</a>
+        <a class="btn btn-primary" href="https://forms.gle/PWturVPApADCfFQA7">Start your proposal <span class="arrow" aria-hidden="true">→</span></a>
+        <a class="btn btn-secondary" href="STEM_Racing_Season9_Proposal_Rubric.pdf" download>Download the rubric <span aria-hidden="true">(PDF)</span></a>
       </div>
     </div>
 
-    <aside class="slab">
-      <div class="k">Applications close in</div>
-      <div class="big"><span id="daysLeft">—</span><small id="daysUnit">days</small></div>
-      <div class="date" id="closeDate">21 August 2026</div>
-      <hr>
+    <aside class="countdown material">
+      <p class="label">Applications close in</p>
+      <p class="big"><span id="daysLeft">—</span><small id="daysUnit">days</small></p>
+      <p class="date" id="closeDate">21 August 2026</p>
       <dl>
         <dt>Team size</dt><dd>3 to 6 students</dd>
         <dt>Eligible</dt><dd>Ages 9 to 19</dd>
@@ -269,11 +567,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     </div>
 
     <div class="deliverables">
-      <div class="del reveal"><div class="n">01</div><h3>The car</h3><p>Designed in CAD, checked against the technical regulations, machined and finished to tolerance.</p></div>
-      <div class="del reveal"><div class="n">02</div><h3>Engineering portfolio</h3><p>Your design reasoning, testing, simulation and manufacturing evidence, written up as a formal document.</p></div>
-      <div class="del reveal"><div class="n">03</div><h3>Enterprise portfolio</h3><p>Budget, sponsorship, brand identity and marketing. Run the team like a business, because it is one.</p></div>
-      <div class="del reveal"><div class="n">04</div><h3>Pit display</h3><p>A physical stand you design and build, staffed by your team while judges walk the paddock.</p></div>
-      <div class="del reveal"><div class="n">05</div><h3>Verbal presentation</h3><p>Ten minutes in front of a judging panel, followed by questions you cannot rehearse for.</p></div>
+      <article class="del material reveal"><p class="n">01</p><h3>The car</h3><p>Designed in CAD, checked against the technical regulations, machined and finished to tolerance.</p></article>
+      <article class="del material reveal"><p class="n">02</p><h3>Engineering portfolio</h3><p>Your design reasoning, testing, simulation and manufacturing evidence, written up as a formal document.</p></article>
+      <article class="del material reveal"><p class="n">03</p><h3>Enterprise portfolio</h3><p>Budget, sponsorship, brand identity and marketing. Run the team like a business, because it is one.</p></article>
+      <article class="del material reveal"><p class="n">04</p><h3>Pit display</h3><p>A physical stand you design and build, staffed by your team while judges walk the paddock.</p></article>
+      <article class="del material reveal"><p class="n">05</p><h3>Verbal presentation</h3><p>Ten minutes in front of a judging panel, followed by questions you cannot rehearse for.</p></article>
     </div>
   </div>
 </section>
@@ -289,21 +587,21 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     </div>
 
     <div class="steps">
-      <div class="step reveal">
-        <div class="n">Step one</div>
+      <article class="step reveal">
+        <p class="n">Step one</p>
         <h3>Form a team of 3 to 6</h3>
         <p>Pick people who will still be turning up in March, not just the people you sit with. You will need someone comfortable in CAD, someone who can design, and someone who will chase sponsors.</p>
-      </div>
-      <div class="step reveal">
-        <div class="n">Step two</div>
+      </article>
+      <article class="step reveal">
+        <p class="n">Step two</p>
         <h3>Read the rubric, then answer against it</h3>
         <p>Every question on the form maps to a criterion below. Score yourselves honestly first and fix the weak answers before you submit.</p>
-      </div>
-      <div class="step reveal">
-        <div class="n">Step three</div>
+      </article>
+      <article class="step reveal">
+        <p class="n">Step three</p>
         <h3>Submit before 21 August</h3>
         <p>Shortlisted teams are invited to a short interview. It is a conversation about your proposal, not a test. <a href="https://forms.gle/PWturVPApADCfFQA7">Open the proposal form →</a></p>
-      </div>
+      </article>
     </div>
   </div>
 </section>
@@ -314,24 +612,24 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <p class="eyebrow">The judging sheet</p>
       <div>
         <h2>Mark your own proposal before we do.</h2>
-        <p>This is the exact sheet the panel uses. Pick the band that honestly describes your answer for each criterion and watch the total build. If you land under 70, you know which section to rewrite.</p>
+        <p>This is the exact sheet the panel uses. Drag along each row, or tap a band, to pick the one that honestly describes your answer. If you land under 70, you know which section to rewrite.</p>
       </div>
     </div>
 
-    <div class="sheet-intro">
+    <div class="note material">
       Two panel members mark independently and the scores are averaged. <strong>The panel is not looking for teams who already know how to design a race car.</strong> It is looking for teams who will still be here in March. Honesty scores higher than polish throughout.
     </div>
 
     <div id="criteria"></div>
 
-    <div class="tally">
+    <div class="tally material">
       <div>
-        <span class="label">Your self-score</span>
-        <span class="score"><span id="total">0</span><small> / 100</small></span>
+        <p class="label">Your self-score</p>
+        <p class="score"><span id="total">0</span><small> / 100</small></p>
       </div>
       <p class="verdict" id="verdict">Pick a band on each criterion to build your score. The interview threshold is <b>70</b>.</p>
       <button class="reset" id="reset" type="button">Clear</button>
-      <div class="meter"><i id="meterFill"></i></div>
+      <div class="meter"><i id="meterFill"></i><span class="threshold" title="Interview threshold"></span></div>
     </div>
   </div>
 </section>
@@ -347,21 +645,21 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     </div>
 
     <div class="contacts">
-      <div class="card">
-        <div class="role">Head of STEM Racing</div>
+      <article class="card material">
+        <p class="role">Head of STEM Racing</p>
         <h3>Ms Sonica Puri</h3>
         <a href="mailto:sonica.puri@british-school.org">sonica.puri@british-school.org</a>
-      </div>
-      <div class="card">
-        <div class="role">Student Mentor</div>
+      </article>
+      <article class="card material">
+        <p class="role">Student Mentor</p>
         <h3>Reyansh Gupta</h3>
         <a href="mailto:reyansh.gupta@british-school.org">reyansh.gupta@british-school.org</a>
-      </div>
-      <div class="card">
-        <div class="role">Ready?</div>
+      </article>
+      <article class="card material">
+        <p class="role">Ready?</p>
         <h3>Submit your proposal</h3>
         <a href="https://forms.gle/PWturVPApADCfFQA7">Open the proposal form →</a>
-      </div>
+      </article>
     </div>
   </div>
 </section>
@@ -370,12 +668,126 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
 <footer>
   <div class="wrap">
-    <span>The British School New Delhi &nbsp;·&nbsp; STEM Racing Season 9</span>
+    <span>The British School New Delhi · STEM Racing Season 9</span>
     <span>Applications close 21 August 2026</span>
   </div>
 </footer>
 
 <script>
+'use strict';
+
+/* ==========================================================================
+   Motion primitives
+   A spring animates from wherever the value currently is, carries velocity
+   through a re-target, and can be grabbed mid-flight. Nothing here is a
+   fixed-duration animation, because anything a finger can touch has to be
+   interruptible.
+   ========================================================================== */
+
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+
+class Spring {
+  /* response — seconds to reach the target, not a duration
+     damping  — 1.0 critically damped (no overshoot), ~0.8 for momentum */
+  constructor(value, onUpdate, opts = {}){
+    this.x = value;
+    this.v = 0;
+    this.target = value;
+    this.response = opts.response ?? 0.4;
+    this.damping  = opts.damping  ?? 1.0;
+    this.eps      = opts.eps      ?? 0.01;
+    this.onUpdate = onUpdate;
+    this.running  = false;
+    this._tick = this._tick.bind(this);
+  }
+
+  /* Re-target without resetting position. Velocity is carried unless a new
+     one is handed in, so a reversal blends instead of hitting a brick wall. */
+  set(target, velocity){
+    this.target = target;
+    if (velocity !== undefined) this.v = velocity;
+    if (reduceMotion.matches){ this.settle(); return; }
+    this._start();
+  }
+
+  /* Jump with no animation — used on resize and on reduced motion. */
+  snap(value){
+    this.running = false;
+    this.x = this.target = value;
+    this.v = 0;
+    this.onUpdate(this.x);
+  }
+
+  settle(){ this.snap(this.target); }
+
+  /* The live on-screen value. Any new gesture starts from here. */
+  get value(){ return this.x; }
+  get velocity(){ return this.v; }
+
+  _start(){
+    if (this.running) return;
+    this.running = true;
+    this.last = null;
+    requestAnimationFrame(this._tick);
+  }
+
+  _tick(now){
+    if (!this.running) return;
+    if (this.last === null) this.last = now;
+    const dt = Math.min((now - this.last) / 1000, 1 / 30);
+    this.last = now;
+
+    const w = (2 * Math.PI) / this.response;
+    const k = w * w;                 // stiffness
+    const c = 2 * this.damping * w;  // damping coefficient
+
+    const steps = Math.max(1, Math.ceil(dt / (1 / 600)));
+    const h = dt / steps;
+    for (let i = 0; i < steps; i++){
+      const a = -k * (this.x - this.target) - c * this.v;
+      this.v += a * h;
+      this.x += this.v * h;
+    }
+
+    this.onUpdate(this.x);
+
+    if (Math.abs(this.x - this.target) < this.eps && Math.abs(this.v) < this.eps * 12){
+      this.x = this.target;
+      this.v = 0;
+      this.running = false;
+      this.onUpdate(this.x);
+      return;
+    }
+    requestAnimationFrame(this._tick);
+  }
+}
+
+/* Where a flick would come to rest, by exponential decay — the same curve
+   scroll deceleration uses. Snap to the target nearest this point, not
+   nearest the release point. */
+function project(velocity, decelerationRate = 0.998){
+  return (velocity / 1000) * decelerationRate / (1 - decelerationRate);
+}
+
+/* Progressive resistance past an edge. A hard stop reads as frozen. */
+function rubberband(overshoot, dimension, constant = 0.55){
+  return (overshoot * dimension * constant) / (dimension + constant * Math.abs(overshoot));
+}
+
+/* Instant press feedback on pointer-down, and cancel-by-dragging-away. */
+document.querySelectorAll('.btn').forEach(btn => {
+  const press = () => btn.classList.add('is-pressed');
+  const release = () => btn.classList.remove('is-pressed');
+  btn.addEventListener('pointerdown', press);
+  btn.addEventListener('pointerup', release);
+  btn.addEventListener('pointercancel', release);
+  btn.addEventListener('pointerleave', release);
+});
+
+/* ==========================================================================
+   Content
+   ========================================================================== */
+
 const CLOSING = new Date('2026-08-21T23:59:59+05:30');
 
 const CRITERIA = [
@@ -432,87 +844,297 @@ const CRITERIA = [
 ];
 
 const BAND_VALUE = [4, 10, 15, 19];
+const PLACEHOLDER = 'Drag across the row, or tap a band, to pick the one that honestly describes your answer.';
 
-/* ---- countdown ---- */
+/* ==========================================================================
+   Countdown
+   ========================================================================== */
 (function(){
-  const ms = CLOSING - new Date();
-  const days = Math.ceil(ms / 86400000);
+  const days = Math.ceil((CLOSING - new Date()) / 86400000);
   const el = document.getElementById('daysLeft');
   const unit = document.getElementById('daysUnit');
-  if (days > 1) { el.textContent = String(days).padStart(2,'0'); unit.textContent = 'days'; }
-  else if (days === 1) { el.textContent = '01'; unit.textContent = 'day'; }
-  else if (days === 0) { el.textContent = '00'; unit.textContent = 'today'; }
-  else { el.textContent = '—'; unit.textContent = 'closed'; document.getElementById('closeDate').textContent = 'Closed 21 August 2026'; }
+  if (days > 1){ el.textContent = String(days).padStart(2, '0'); unit.textContent = 'days'; }
+  else if (days === 1){ el.textContent = '01'; unit.textContent = 'day'; }
+  else if (days === 0){ el.textContent = '00'; unit.textContent = 'today'; }
+  else {
+    el.textContent = '—';
+    unit.textContent = 'closed';
+    document.getElementById('closeDate').textContent = 'Closed 21 August 2026';
+  }
 })();
 
-/* ---- build the judging sheet ---- */
+/* ==========================================================================
+   The judging sheet
+   Each criterion is one draggable segmented control. The thumb tracks the
+   finger 1:1, resists past the ends, and on release is thrown to the band
+   nearest where the gesture was heading.
+   ========================================================================== */
+
 const host = document.getElementById('criteria');
 const chosen = new Array(CRITERIA.length).fill(null);
+const controls = [];
 
 CRITERIA.forEach((c, i) => {
-  const wrap = document.createElement('article');
-  wrap.className = 'criterion reveal';
-  wrap.innerHTML = `
-    <div class="criterion-head">
-      <h3><span class="idx">Criterion ${String(i+1).padStart(2,'0')}</span>${c.title}</h3>
-      <span class="max">20 marks</span>
+  const article = document.createElement('article');
+  article.className = 'criterion material reveal';
+  article.innerHTML = `
+    <div class="crit-head">
+      <div>
+        <p class="idx">Criterion ${String(i + 1).padStart(2, '0')}</p>
+        <h3 id="crit-${i}">${c.title}</h3>
+        <p class="src">Assessed from ${c.src}</p>
+      </div>
+      <p class="max">20 marks</p>
     </div>
-    <div class="src">Assessed from ${c.src}</div>
-    <div class="bands" role="group" aria-label="${c.title} bands">
-      ${c.bands.map((b, j) => `
-        <button class="band" type="button" aria-pressed="false" data-c="${i}" data-b="${j}">
-          ${b[0]}<span class="marks">${b[1]}</span>
-        </button>`).join('')}
+    <div class="seg" data-c="${i}">
+      <div class="seg-thumb"></div>
+      <div class="seg-opts" role="radiogroup" aria-labelledby="crit-${i}">
+        ${c.bands.map((b, j) => `
+          <button class="seg-opt" type="button" role="radio" aria-checked="false" tabindex="${j === 0 ? 0 : -1}" data-b="${j}">
+            <span class="name">${b[0]}</span><span class="marks">${b[1]}</span>
+          </button>`).join('')}
+      </div>
     </div>
-    <div class="band-body" id="body-${i}"><span class="placeholder">Choose the band that honestly describes your answer.</span></div>`;
-  host.appendChild(wrap);
+    <p class="band-body is-empty" id="body-${i}">${PLACEHOLDER}</p>`;
+  host.appendChild(article);
+  controls.push(new BandControl(article.querySelector('.seg'), i));
 });
 
-function update(){
-  const picked = chosen.filter(v => v !== null);
-  const total = picked.reduce((a, j) => a + BAND_VALUE[j], 0);
-  document.getElementById('total').textContent = total;
-  document.getElementById('meterFill').style.width = total + '%';
+function BandControl(root, index){
+  const thumb = root.querySelector('.seg-thumb');
+  const opts  = Array.from(root.querySelectorAll('.seg-opt'));
+  const body  = document.getElementById('body-' + index);
+  const n     = opts.length;
 
-  const v = document.getElementById('verdict');
-  if (picked.length < CRITERIA.length) {
-    v.innerHTML = `${CRITERIA.length - picked.length} criteria left. The interview threshold is <b>70</b>.`;
-  } else if (total >= 85) {
-    v.innerHTML = `That is a <b>strong proposal</b>. Submit it, then spend the leftover time on your weakest criterion anyway.`;
-  } else if (total >= 70) {
-    v.innerHTML = `You would clear the <b>70 threshold</b>. Find your lowest criterion and rewrite that answer before submitting.`;
-  } else if (total >= 50) {
-    v.innerHTML = `Below the <b>70 threshold</b> as it stands. Two rewritten answers would probably get you there.`;
-  } else {
-    v.innerHTML = `Well under <b>70</b>. Sit down as a team and work through the criteria properly, there is still time.`;
+  let step = 0;          // width of one band, px
+  let shown = -1;        // band currently reflected in the UI
+  let visible = false;   // thumb materialised yet
+  let dragging = false;
+  let moved = false;
+  let grabOffset = 0;
+  let history = [];      // recent {x, t} for release velocity
+
+  const spring = new Spring(0, x => {
+    thumb.style.transform = `translate3d(${x}px,0,0) scale(${dragging ? 0.98 : 1})`;
+    if (!visible) return;                       // a hidden thumb selects nothing
+    const near = clampIndex(Math.round(x / (step || 1)));
+    if (near !== shown) reflect(near);          // feedback during the gesture
+  }, { response: 0.35, damping: 1.0, eps: 0.05 });
+
+  function clampIndex(i){ return Math.max(0, Math.min(n - 1, i)); }
+
+  function measure(){
+    const inner = root.clientWidth - 8;         // 4px padding each side
+    step = inner / n;
+    thumb.style.width = step + 'px';
+    if (chosen[index] !== null) spring.snap(chosen[index] * step);
   }
+
+  /* Live state — runs mid-drag, so the sheet reads out while you move. */
+  function reflect(i){
+    shown = i;
+    opts.forEach((o, j) => {
+      o.setAttribute('aria-checked', String(j === i));
+      o.tabIndex = j === i ? 0 : -1;
+    });
+    body.innerHTML = CRITERIA[index].bands[i][2];
+    body.classList.remove('is-empty');
+    chosen[index] = i;
+    updateTally();
+  }
+
+  function materialise(){
+    if (visible) return;
+    visible = true;
+    thumb.style.opacity = '1';
+    if (!reduceMotion.matches){
+      thumb.animate(
+        [{ transform: thumb.style.transform + ' scale(.86)', opacity: 0 },
+         { transform: thumb.style.transform, opacity: 1 }],
+        { duration: 260, easing: 'cubic-bezier(.22,.61,.36,1)' }
+      );
+    }
+  }
+
+  function commit(i, velocity){
+    materialise();
+    reflect(i);
+    /* Bounce only when a flick preceded it. A tap settles flat. */
+    spring.damping = velocity ? 0.82 : 1.0;
+    spring.set(i * step, velocity);
+  }
+
+  /* ---- pointer ---- */
+  root.addEventListener('pointerdown', e => {
+    if (e.button !== undefined && e.button > 0) return;
+    /* Capture keeps tracking alive once the finger leaves the row. */
+    try { root.setPointerCapture(e.pointerId); } catch (_) {}
+    dragging = true;
+    moved = false;
+    root.classList.add('is-dragging');
+
+    const x = e.clientX - root.getBoundingClientRect().left - 4;
+    /* Respect where they grabbed the thumb; if they pressed the bare track,
+       the thumb only takes the finger once the drag threshold is crossed. */
+    grabOffset = visible ? x - spring.value : step / 2;
+    history = [{ x, t: e.timeStamp }];
+  });
+
+  root.addEventListener('pointermove', e => {
+    if (!dragging) return;
+    const x = e.clientX - root.getBoundingClientRect().left - 4;
+    history.push({ x, t: e.timeStamp });
+    if (history.length > 6) history.shift();
+
+    if (!moved && Math.abs(x - history[0].x) < 10) return;   // hysteresis
+    if (!moved){ moved = true; materialise(); }
+
+    const max = (n - 1) * step;
+    let want = x - grabOffset;
+    if (want < 0)        want = -rubberband(-want, step * n);
+    else if (want > max) want = max + rubberband(want - max, step * n);
+
+    spring.snap(want);        // 1:1 with the finger, no smoothing in between
+    thumb.style.transform = `translate3d(${want}px,0,0) scale(.98)`;
+  });
+
+  function end(e){
+    if (!dragging) return;
+    dragging = false;
+    root.classList.remove('is-dragging');
+    try { if (root.hasPointerCapture?.(e.pointerId)) root.releasePointerCapture(e.pointerId); } catch (_) {}
+
+    if (!moved){
+      const opt = e.target.closest?.('.seg-opt');
+      const i = opt ? +opt.dataset.b : clampIndex(Math.round(spring.value / step));
+      commit(i, 0);
+      return;
+    }
+
+    /* Release velocity in px/s from the recent history, then land where the
+       gesture was actually going. */
+    const last = history[history.length - 1];
+    const ref  = history[0];
+    const dt   = Math.max(1, last.t - ref.t);
+    const v    = (last.x - ref.x) / dt * 1000;
+
+    const landing = spring.value + project(v);
+    commit(clampIndex(Math.round(landing / step)), v);
+  }
+  root.addEventListener('pointerup', end);
+  root.addEventListener('pointercancel', end);
+
+  /* Suppress the click that follows a drag. */
+  root.addEventListener('click', e => { if (moved) e.preventDefault(); });
+
+  /* ---- keyboard ---- */
+  root.addEventListener('keydown', e => {
+    const current = chosen[index] ?? 0;
+    let next = null;
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next = clampIndex(current + 1);
+    else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') next = clampIndex(current - 1);
+    else if (e.key === 'Home') next = 0;
+    else if (e.key === 'End') next = n - 1;
+    else if (e.key === ' ' || e.key === 'Enter'){
+      const opt = e.target.closest('.seg-opt');
+      if (opt){ e.preventDefault(); commit(+opt.dataset.b, 0); }
+      return;
+    }
+    if (next === null) return;
+    e.preventDefault();
+    commit(next, 0);
+    opts[next].focus();
+  });
+
+  this.clear = () => {
+    visible = false;
+    shown = -1;
+    chosen[index] = null;
+    thumb.style.opacity = '0';
+    spring.snap(0);
+    opts.forEach((o, j) => { o.setAttribute('aria-checked', 'false'); o.tabIndex = j === 0 ? 0 : -1; });
+    body.textContent = PLACEHOLDER;
+    body.classList.add('is-empty');
+  };
+  this.measure = measure;
+
+  measure();
 }
 
-host.addEventListener('click', e => {
-  const btn = e.target.closest('.band');
-  if (!btn) return;
-  const ci = +btn.dataset.c, bi = +btn.dataset.b;
-  chosen[ci] = bi;
-  btn.parentElement.querySelectorAll('.band').forEach(b => b.setAttribute('aria-pressed','false'));
-  btn.setAttribute('aria-pressed','true');
-  document.getElementById('body-' + ci).innerHTML = CRITERIA[ci].bands[bi][2];
-  update();
-});
+/* ==========================================================================
+   Tally — the score and meter are springs too, so a drag moves them
+   continuously rather than stepping on release.
+   ========================================================================== */
+
+const totalEl  = document.getElementById('total');
+const meterEl  = document.getElementById('meterFill');
+const verdictEl = document.getElementById('verdict');
+
+const scoreSpring = new Spring(0, x => { totalEl.textContent = Math.round(x); },
+  { response: 0.4, damping: 1.0, eps: 0.02 });
+const meterSpring = new Spring(0, x => { meterEl.style.transform = `scaleX(${x})`; },
+  { response: 0.45, damping: 1.0, eps: 0.0004 });
+
+let lastVerdict = '';
+
+function updateTally(){
+  const picked = chosen.filter(v => v !== null);
+  const total = picked.reduce((a, j) => a + BAND_VALUE[j], 0);
+
+  scoreSpring.set(total);
+  meterSpring.set(total / 100);
+
+  let html;
+  if (picked.length < CRITERIA.length){
+    const left = CRITERIA.length - picked.length;
+    html = `${left} ${left === 1 ? 'criterion' : 'criteria'} left. The interview threshold is <b>70</b>.`;
+  } else if (total >= 85){
+    html = `That is a <b>strong proposal</b>. Submit it, then spend the leftover time on your weakest criterion anyway.`;
+  } else if (total >= 70){
+    html = `You would clear the <b>70 threshold</b>. Find your lowest criterion and rewrite that answer before submitting.`;
+  } else if (total >= 50){
+    html = `Below the <b>70 threshold</b> as it stands. Two rewritten answers would probably get you there.`;
+  } else {
+    html = `Well under <b>70</b>. Sit down as a team and work through the criteria properly, there is still time.`;
+  }
+  if (html !== lastVerdict){ verdictEl.innerHTML = html; lastVerdict = html; }
+}
+updateTally();
 
 document.getElementById('reset').addEventListener('click', () => {
   chosen.fill(null);
-  document.querySelectorAll('.band').forEach(b => b.setAttribute('aria-pressed','false'));
-  CRITERIA.forEach((c, i) => {
-    document.getElementById('body-' + i).innerHTML =
-      '<span class="placeholder">Choose the band that honestly describes your answer.</span>';
-  });
-  update();
+  controls.forEach(c => c.clear());
+  updateTally();
 });
 
-/* ---- scroll reveal ---- */
-const io = new IntersectionObserver(entries => {
-  entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
-}, { threshold: .12 });
+/* Re-measure without animating — a resize is not a gesture. */
+let resizeRaf = 0;
+addEventListener('resize', () => {
+  cancelAnimationFrame(resizeRaf);
+  resizeRaf = requestAnimationFrame(() => controls.forEach(c => c.measure()));
+});
+
+/* ==========================================================================
+   Chrome edge + reveal
+   ========================================================================== */
+
+const chromeBar = document.getElementById('chrome');
+let scrollRaf = 0;
+addEventListener('scroll', () => {
+  if (scrollRaf) return;
+  scrollRaf = requestAnimationFrame(() => {
+    chromeBar.classList.toggle('is-scrolled', scrollY > 8);
+    scrollRaf = 0;
+  });
+}, { passive: true });
+
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(en => {
+    if (!en.isIntersecting) return;
+    en.target.classList.add('is-in');
+    io.unobserve(en.target);
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
 </body>

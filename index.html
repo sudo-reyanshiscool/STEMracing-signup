@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>STEM Racing Season 9 — The British School New Delhi</title>
+<meta name="description" content="Applications for STEM Racing Season 9 at The British School New Delhi. Read the judging rubric, score your own proposal, and apply before 21 August 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#06183A;
+  --deep:#030F27;
+  --panel:#0B2350;
+  --panel-2:#102C61;
+  --teal:#12A5A0;
+  --teal-dim:#0B6E6B;
+  --gold:#E8B234;
+  --paper:#F2F5FA;
+  --muted:#8FA3C4;
+  --rule:rgba(143,163,196,.22);
+  --display:'Familjen Grotesk','Helvetica Neue',system-ui,sans-serif;
+  --body:'Inter Tight',system-ui,sans-serif;
+  --data:'JetBrains Mono',ui-monospace,monospace;
+  --pad:clamp(20px,5vw,64px);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--night);
+  color:var(--paper);
+  font-family:var(--body);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:'';
+  position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(120% 70% at 82% -8%, rgba(18,165,160,.20), transparent 60%),
+    radial-gradient(90% 60% at 0% 0%, rgba(232,178,52,.10), transparent 55%);
+}
+main,header,footer{position:relative;z-index:1}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:700;letter-spacing:-.02em;margin:0}
+
+.wrap{max-width:1160px;margin:0 auto;padding-inline:var(--pad)}
+
+.eyebrow{
+  font-family:var(--data);font-size:11px;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--teal);
+  display:flex;align-items:center;gap:10px;
+}
+.eyebrow::before{content:'';width:26px;height:2px;background:var(--gold);flex:none}
+
+/* ---------- top bar ---------- */
+.topbar{
+  border-bottom:1px solid var(--rule);
+  background:rgba(3,15,39,.72);
+  backdrop-filter:blur(10px);
+  position:sticky;top:0;z-index:40;
+}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.mark{font-family:var(--data);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.mark span{color:var(--gold)}
+.topbar nav{display:flex;gap:22px;font-family:var(--data);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+.topbar nav a{color:var(--muted);text-decoration:none;transition:color .18s}
+.topbar nav a:hover{color:var(--paper)}
+@media(max-width:720px){.topbar nav{display:none}}
+
+/* ---------- hero ---------- */
+.hero{padding-block:clamp(48px,7vw,86px) clamp(40px,6vw,72px)}
+.hero h1{
+  font-size:clamp(36px,5.4vw,64px);
+  line-height:1.0;
+  margin:22px 0 0;
+  text-wrap:balance;
+}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:end}
+@media(max-width:860px){.hero-grid{grid-template-columns:1fr;align-items:start}}
+.lede{color:var(--muted);font-size:clamp(16px,1.9vw,19px);max-width:52ch;margin:24px 0 0}
+.lede strong{color:var(--paper);font-weight:600}
+
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.btn{
+  font-family:var(--data);font-size:12px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;
+  padding:15px 24px;border-radius:2px;text-decoration:none;
+  display:inline-flex;align-items:center;gap:10px;border:1px solid transparent;
+  transition:transform .16s ease, background .16s ease, border-color .16s ease;
+}
+.btn-primary{background:var(--gold);color:var(--deep)}
+.btn-primary:hover{transform:translateY(-2px);background:#F2C155}
+.btn-ghost{border-color:var(--rule);color:var(--paper)}
+.btn-ghost:hover{border-color:var(--teal);transform:translateY(-2px)}
+
+/* countdown slab */
+.slab{
+  border:1px solid var(--rule);
+  background:linear-gradient(160deg,rgba(16,44,97,.85),rgba(3,15,39,.6));
+  padding:26px;border-radius:3px;position:relative;overflow:hidden;
+}
+.slab::after{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--teal)}
+.slab .k{font-family:var(--data);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.slab .big{font-family:var(--data);font-weight:700;font-size:clamp(46px,7vw,68px);line-height:1;color:var(--paper);font-variant-numeric:tabular-nums;margin:8px 0 2px}
+.slab .big small{font-size:15px;color:var(--muted);letter-spacing:.1em;margin-left:8px}
+.slab .date{font-family:var(--data);font-size:12px;color:var(--gold);letter-spacing:.08em}
+.slab hr{border:0;border-top:1px solid var(--rule);margin:18px 0}
+.slab dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 16px;font-size:13px}
+.slab dt{font-family:var(--data);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);align-self:center}
+.slab dd{margin:0;color:var(--paper)}
+
+/* ---------- sections ---------- */
+section{padding-block:clamp(52px,7vw,90px);border-top:1px solid var(--rule)}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:clamp(24px,5vw,60px);align-items:start;margin-bottom:44px}
+@media(max-width:860px){.sec-head{grid-template-columns:1fr;gap:16px;margin-bottom:32px}}
+.sec-head h2{font-size:clamp(26px,3.4vw,38px);line-height:1.06;text-wrap:balance;margin-top:14px}
+.sec-head p{color:var(--muted);margin:16px 0 0;max-width:56ch}
+
+/* deliverables */
+.deliverables{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.del{background:var(--night);padding:26px 22px}
+.del .n{font-family:var(--data);font-size:11px;color:var(--teal);letter-spacing:.14em}
+.del h3{font-size:19px;margin:12px 0 8px}
+.del p{margin:0;font-size:14px;color:var(--muted);line-height:1.55}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,3vw,32px)}
+@media(max-width:800px){.steps{grid-template-columns:1fr}}
+.step{border-top:2px solid var(--gold);padding-top:20px}
+.step:nth-child(2){border-color:var(--teal)}
+.step:nth-child(3){border-color:var(--muted)}
+.step .n{font-family:var(--data);font-size:11px;letter-spacing:.16em;color:var(--muted);text-transform:uppercase}
+.step h3{font-size:21px;margin:10px 0 10px}
+.step p{margin:0;color:var(--muted);font-size:15px}
+.step a{color:var(--gold);text-underline-offset:3px}
+
+/* ---------- judging sheet (signature) ---------- */
+.sheet-intro{
+  border:1px solid var(--rule);border-left:3px solid var(--gold);
+  padding:20px 24px;margin-bottom:34px;background:rgba(11,35,80,.5);
+  font-size:15px;color:var(--muted);
+}
+.sheet-intro strong{color:var(--paper);font-weight:600}
+
+.criterion{border:1px solid var(--rule);background:rgba(11,35,80,.42);margin-bottom:14px}
+.criterion-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:20px 24px 4px;flex-wrap:wrap}
+.criterion-head h3{font-size:clamp(19px,2.4vw,25px)}
+.criterion-head .idx{font-family:var(--data);font-size:11px;color:var(--teal);letter-spacing:.16em;display:block;margin-bottom:6px}
+.criterion-head .max{font-family:var(--data);font-size:11px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;white-space:nowrap}
+.criterion .src{padding:0 24px 16px;font-family:var(--data);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+.bands{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+@media(max-width:640px){.bands{grid-template-columns:repeat(2,1fr)}}
+.band{
+  background:var(--night);border:0;cursor:pointer;text-align:left;
+  padding:14px 16px;color:var(--muted);font-family:var(--data);
+  font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+  transition:background .16s, color .16s;
+}
+.band .marks{display:block;font-size:17px;letter-spacing:0;margin-top:6px;color:var(--paper);font-variant-numeric:tabular-nums}
+.band:hover{background:var(--panel-2);color:var(--paper)}
+.band[aria-pressed="true"]{background:var(--teal-dim);color:#fff}
+.band[aria-pressed="true"] .marks{color:var(--gold)}
+.band:focus-visible{outline:2px solid var(--gold);outline-offset:-3px}
+
+.band-body{padding:20px 24px 24px;font-size:15px;line-height:1.6;color:var(--paper);min-height:96px}
+.band-body em{color:var(--gold);font-style:italic}
+.band-body .placeholder{color:var(--muted)}
+
+/* tally */
+.tally{
+  position:sticky;bottom:0;z-index:30;margin-top:28px;
+  border:1px solid var(--teal);background:rgba(3,15,39,.94);
+  backdrop-filter:blur(12px);padding:18px 24px;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
+}
+.tally .score{font-family:var(--data);font-weight:700;font-size:32px;font-variant-numeric:tabular-nums;line-height:1}
+.tally .score small{font-size:15px;color:var(--muted)}
+.tally .label{font-family:var(--data);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px}
+.tally .verdict{font-size:14.5px;color:var(--muted);max-width:46ch;flex:1 1 260px}
+.tally .verdict b{color:var(--gold);font-weight:600}
+.meter{height:4px;background:var(--rule);flex:1 1 100%;order:3;position:relative;overflow:hidden}
+.meter i{position:absolute;inset:0 auto 0 0;width:0;background:linear-gradient(90deg,var(--teal),var(--gold));transition:width .45s cubic-bezier(.2,.7,.3,1)}
+.meter::after{content:'';position:absolute;left:70%;top:-4px;bottom:-4px;width:1px;background:var(--gold);opacity:.8}
+.reset{
+  background:none;border:1px solid var(--rule);color:var(--muted);
+  font-family:var(--data);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  padding:9px 14px;cursor:pointer;transition:color .16s,border-color .16s;
+}
+.reset:hover{color:var(--paper);border-color:var(--muted)}
+
+/* contact */
+.contacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:clamp(18px,3vw,34px)}
+.card{border:1px solid var(--rule);padding:24px;background:rgba(11,35,80,.42)}
+.card .role{font-family:var(--data);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal)}
+.card h3{font-size:20px;margin:10px 0 6px}
+.card a{color:var(--gold);font-size:14px;text-decoration:none;word-break:break-all}
+.card a:hover{text-decoration:underline}
+
+footer{border-top:1px solid var(--rule);padding-block:32px;color:var(--muted);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <div class="mark">TBS New Delhi <span>/</span> STEM Racing <span>S9</span></div>
+    <nav>
+      <a href="#brief">The season</a>
+      <a href="#apply">How to apply</a>
+      <a href="#sheet">Judging sheet</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero" style="border-top:0">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Season 9 &nbsp;·&nbsp; Applications open</p>
+      <h1>Design the car.<br>Run the team.<br><em>Get judged on both.</em></h1>
+      <p class="lede">STEM Racing is the world's largest STEM competition. Teams of three to six design a miniature compressed-air car, manufacture it, and race it over twenty metres in about one second. <strong>The car is only half the marks.</strong> The rest comes from engineering documentation, sponsorship, branding and how you present under questioning.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="PROPOSAL_FORM_URL" id="applyTop">Start your proposal →</a>
+        <a class="btn btn-ghost" href="STEM_Racing_Season9_Proposal_Rubric.pdf">Download the rubric (PDF)</a>
+      </div>
+    </div>
+
+    <aside class="slab">
+      <div class="k">Applications close in</div>
+      <div class="big"><span id="daysLeft">—</span><small id="daysUnit">days</small></div>
+      <div class="date" id="closeDate">21 August 2026</div>
+      <hr>
+      <dl>
+        <dt>Team size</dt><dd>3 to 6 students</dd>
+        <dt>Eligible</dt><dd>Ages 9 to 19</dd>
+        <dt>Marked out of</dt><dd>100</dd>
+        <dt>Interview at</dt><dd>70 or above</dd>
+      </dl>
+    </aside>
+  </div>
+</section>
+
+<section id="brief">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">What you actually make</p>
+      <div>
+        <h2>A season is five deliverables, not one car.</h2>
+        <p>Teams who only think about the car lose to teams who understood the whole brief. Every one of these is judged, and every one of them needs someone on your team who owns it.</p>
+      </div>
+    </div>
+
+    <div class="deliverables">
+      <div class="del reveal"><div class="n">01</div><h3>The car</h3><p>Designed in CAD, checked against the technical regulations, machined and finished to tolerance.</p></div>
+      <div class="del reveal"><div class="n">02</div><h3>Engineering portfolio</h3><p>Your design reasoning, testing, simulation and manufacturing evidence, written up as a formal document.</p></div>
+      <div class="del reveal"><div class="n">03</div><h3>Enterprise portfolio</h3><p>Budget, sponsorship, brand identity and marketing. Run the team like a business, because it is one.</p></div>
+      <div class="del reveal"><div class="n">04</div><h3>Pit display</h3><p>A physical stand you design and build, staffed by your team while judges walk the paddock.</p></div>
+      <div class="del reveal"><div class="n">05</div><h3>Verbal presentation</h3><p>Ten minutes in front of a judging panel, followed by questions you cannot rehearse for.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="apply">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">How to apply</p>
+      <div>
+        <h2>Three steps. Roughly an evening's work.</h2>
+        <p>One submission per team. Nominate a Team Manager to fill in the form on everyone's behalf, but write the answers together.</p>
+      </div>
+    </div>
+
+    <div class="steps">
+      <div class="step reveal">
+        <div class="n">Step one</div>
+        <h3>Form a team of 3 to 6</h3>
+        <p>Pick people who will still be turning up in March, not just the people you sit with. You will need someone comfortable in CAD, someone who can design, and someone who will chase sponsors.</p>
+      </div>
+      <div class="step reveal">
+        <div class="n">Step two</div>
+        <h3>Read the rubric, then answer against it</h3>
+        <p>Every question on the form maps to a criterion below. Score yourselves honestly first and fix the weak answers before you submit.</p>
+      </div>
+      <div class="step reveal">
+        <div class="n">Step three</div>
+        <h3>Submit before 21 August</h3>
+        <p>Shortlisted teams are invited to a short interview. It is a conversation about your proposal, not a test. <a href="PROPOSAL_FORM_URL">Open the proposal form →</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sheet">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">The judging sheet</p>
+      <div>
+        <h2>Mark your own proposal before we do.</h2>
+        <p>This is the exact sheet the panel uses. Pick the band that honestly describes your answer for each criterion and watch the total build. If you land under 70, you know which section to rewrite.</p>
+      </div>
+    </div>
+
+    <div class="sheet-intro">
+      Two panel members mark independently and the scores are averaged. <strong>The panel is not looking for teams who already know how to design a race car.</strong> It is looking for teams who will still be here in March. Honesty scores higher than polish throughout.
+    </div>
+
+    <div id="criteria"></div>
+
+    <div class="tally">
+      <div>
+        <span class="label">Your self-score</span>
+        <span class="score"><span id="total">0</span><small> / 100</small></span>
+      </div>
+      <p class="verdict" id="verdict">Pick a band on each criterion to build your score. The interview threshold is <b>70</b>.</p>
+      <button class="reset" id="reset" type="button">Clear</button>
+      <div class="meter"><i id="meterFill"></i></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Questions</p>
+      <div>
+        <h2>Ask before you guess.</h2>
+        <p>If something in the rubric is unclear, or you are unsure whether your group is strong enough to apply, send an email. Asking is not held against you.</p>
+      </div>
+    </div>
+
+    <div class="contacts">
+      <div class="card">
+        <div class="role">Head of STEM Racing</div>
+        <h3>Ms Sonica Puri</h3>
+        <a href="mailto:sonica.puri@british-school.org">sonica.puri@british-school.org</a>
+      </div>
+      <div class="card">
+        <div class="role">Student Mentor</div>
+        <h3>Reyansh Gupta</h3>
+        <a href="mailto:reyansh.gupta@british-school.org">reyansh.gupta@british-school.org</a>
+      </div>
+      <div class="card">
+        <div class="role">Ready?</div>
+        <h3>Submit your proposal</h3>
+        <a href="PROPOSAL_FORM_URL">Open the proposal form →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>The British School New Delhi &nbsp;·&nbsp; STEM Racing Season 9</span>
+    <span>Applications close 21 August 2026</span>
+  </div>
+</footer>
+
+<script>
+const CLOSING = new Date('2026-08-21T23:59:59+05:30');
+
+const CRITERIA = [
+  {
+    title: 'Motivation and understanding',
+    src: 'Section 3 of the proposal form',
+    bands: [
+      ['Limited','0–7','Thinks the competition is only about making a fast car, or cannot say what a team actually produces.'],
+      ['Developing','8–12','Generic enthusiasm. Describes the racing but not the documentation, judging or business side.'],
+      ['Strong','13–16','Genuine enthusiasm and a broadly correct picture of the season. Some parts of the workload underestimated.'],
+      ['Exceptional','17–20','Explains why <em>this</em> competition, not just any competition. Shows accurate knowledge of all five deliverables. Reasons are personal and specific.']
+    ]
+  },
+  {
+    title: 'Skills and evidence',
+    src: 'Section 4 of the proposal form',
+    bands: [
+      ['Limited','0–7','No examples, or claims that do not stand up. Overstated experience is marked down harder than admitting none.'],
+      ['Developing','8–12','Skills listed but not evidenced. "We are good at design" with nothing behind it.'],
+      ['Strong','13–16','Real examples given, though thin in one or two areas. Reasonable spread across members.'],
+      ['Exceptional','17–20','Concrete, verifiable examples of things members have built, designed, organised or led. Skills spread sensibly across the team rather than concentrated in one person.']
+    ]
+  },
+  {
+    title: 'Commitment and realism',
+    src: 'Section 5 of the proposal form',
+    bands: [
+      ['Limited','0–7','Cannot commit to a weekly session, or answers suggest nobody has checked with the rest of the team.'],
+      ['Developing','8–12','Claims availability without acknowledging any competing commitment. No plan for busy periods.'],
+      ['Strong','13–16','Honest about clashes and offers a workable plan, though the peak period is treated lightly.'],
+      ['Exceptional','17–20','Full disclosure of other commitments and a credible plan for the peak weeks before Nationals. Clearly discussed as a team rather than one person answering for everyone.']
+    ]
+  },
+  {
+    title: 'Teamwork and resilience',
+    src: 'Section 6 of the proposal form',
+    bands: [
+      ['Limited','0–7','Conflict treated as something that will not happen, or resolved by one member overruling the rest.'],
+      ['Developing','8–12','"We would just talk about it." No structure, no owner, no route to a decision.'],
+      ['Strong','13–16','Sensible answers with a clear decision-making route, though light on the practical mechanics.'],
+      ['Exceptional','17–20','A named way of tracking work and a specific, humane answer to a member dropping off and to a design deadlock. The team expects friction and has decided in advance how to handle it.']
+    ]
+  },
+  {
+    title: 'Enterprise and identity',
+    src: 'Section 7 of the proposal form',
+    bands: [
+      ['Limited','0–7','No engagement with the business side of the competition.'],
+      ['Developing','8–12','Sponsorship reduced to asking for money. Identity is a name and nothing more.'],
+      ['Strong','13–16','A workable sponsorship approach and a defined identity, though the value offered to a sponsor is vague.'],
+      ['Exceptional','17–20','Names the kinds of organisations it would approach and articulates what a sponsor gets in return. Team identity is deliberate, with a rationale behind name, colours and tone.']
+    ]
+  }
+];
+
+const BAND_VALUE = [4, 10, 15, 19];
+
+/* ---- countdown ---- */
+(function(){
+  const ms = CLOSING - new Date();
+  const days = Math.ceil(ms / 86400000);
+  const el = document.getElementById('daysLeft');
+  const unit = document.getElementById('daysUnit');
+  if (days > 1) { el.textContent = String(days).padStart(2,'0'); unit.textContent = 'days'; }
+  else if (days === 1) { el.textContent = '01'; unit.textContent = 'day'; }
+  else if (days === 0) { el.textContent = '00'; unit.textContent = 'today'; }
+  else { el.textContent = '—'; unit.textContent = 'closed'; document.getElementById('closeDate').textContent = 'Closed 21 August 2026'; }
+})();
+
+/* ---- build the judging sheet ---- */
+const host = document.getElementById('criteria');
+const chosen = new Array(CRITERIA.length).fill(null);
+
+CRITERIA.forEach((c, i) => {
+  const wrap = document.createElement('article');
+  wrap.className = 'criterion reveal';
+  wrap.innerHTML = `
+    <div class="criterion-head">
+      <h3><span class="idx">Criterion ${String(i+1).padStart(2,'0')}</span>${c.title}</h3>
+      <span class="max">20 marks</span>
+    </div>
+    <div class="src">Assessed from ${c.src}</div>
+    <div class="bands" role="group" aria-label="${c.title} bands">
+      ${c.bands.map((b, j) => `
+        <button class="band" type="button" aria-pressed="false" data-c="${i}" data-b="${j}">
+          ${b[0]}<span class="marks">${b[1]}</span>
+        </button>`).join('')}
+    </div>
+    <div class="band-body" id="body-${i}"><span class="placeholder">Choose the band that honestly describes your answer.</span></div>`;
+  host.appendChild(wrap);
+});
+
+function update(){
+  const picked = chosen.filter(v => v !== null);
+  const total = picked.reduce((a, j) => a + BAND_VALUE[j], 0);
+  document.getElementById('total').textContent = total;
+  document.getElementById('meterFill').style.width = total + '%';
+
+  const v = document.getElementById('verdict');
+  if (picked.length < CRITERIA.length) {
+    v.innerHTML = `${CRITERIA.length - picked.length} criteria left. The interview threshold is <b>70</b>.`;
+  } else if (total >= 85) {
+    v.innerHTML = `That is a <b>strong proposal</b>. Submit it, then spend the leftover time on your weakest criterion anyway.`;
+  } else if (total >= 70) {
+    v.innerHTML = `You would clear the <b>70 threshold</b>. Find your lowest criterion and rewrite that answer before submitting.`;
+  } else if (total >= 50) {
+    v.innerHTML = `Below the <b>70 threshold</b> as it stands. Two rewritten answers would probably get you there.`;
+  } else {
+    v.innerHTML = `Well under <b>70</b>. Sit down as a team and work through the criteria properly, there is still time.`;
+  }
+}
+
+host.addEventListener('click', e => {
+  const btn = e.target.closest('.band');
+  if (!btn) return;
+  const ci = +btn.dataset.c, bi = +btn.dataset.b;
+  chosen[ci] = bi;
+  btn.parentElement.querySelectorAll('.band').forEach(b => b.setAttribute('aria-pressed','false'));
+  btn.setAttribute('aria-pressed','true');
+  document.getElementById('body-' + ci).innerHTML = CRITERIA[ci].bands[bi][2];
+  update();
+});
+
+document.getElementById('reset').addEventListener('click', () => {
+  chosen.fill(null);
+  document.querySelectorAll('.band').forEach(b => b.setAttribute('aria-pressed','false'));
+  CRITERIA.forEach((c, i) => {
+    document.getElementById('body-' + i).innerHTML =
+      '<span class="placeholder">Choose the band that honestly describes your answer.</span>';
+  });
+  update();
+});
+
+/* ---- scroll reveal ---- */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+}, { threshold: .12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
